@@ -13,40 +13,40 @@
 
     <div class="form-group">
       <label >delivering address</label>
-      <input name="delivering_address" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="delivering_address"  value="{{$order->delivering_address}}"type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
     <div class="form-group">
       <label >doctor name</label>
-      <input name="doctor_name" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="doctor_name" value="{{$order->doctor_name}}" type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
     <div class="form-group">
       <label >is insured</label>
-      <input name="is_insured" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="is_insured" value="{{$order->is_insured}}" type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
     <div class="form-group">
       <label >status</label>
-      <input name="status" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="status" value="{{$order->status}}" type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
     <div class="form-group">
       <label >creator type</label>
-      <input name="creator_type" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="creator_type" value="{{$order->creator_type}}" type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
     <div class="form-group">
       <label >assigned  pharmacy name</label>
-      <input name="assigned_pharmacy_name" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="assigned_pharmacy_name" value="{{$order->assigned_pharmacy_name}}" type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
     <div class="form-group">
       <label >Actions</label>
-      <input name="Actions" type="text" class="form-control" aria-describedby="emailHelp">
+      <input name="Actions" type="text" value="{{$order->Actions}}" class="form-control" aria-describedby="emailHelp">
     </div>
 
-    <button type="submit" class="btn btn-success">Create</button>
+    <button type="submit"  class="btn btn-success">Create</button>
   </form>
 </div>
 @endsection

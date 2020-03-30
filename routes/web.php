@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::delete('/orders/{order}', 'OrderController@destroy')->name('orders.destroy');
 Route::get('/orders', 'OrderController@index')->name('orders.index');
 Route::get('/orders/create', 'OrderController@create')->name('orders.create');
 Route::post('/orders', 'OrderController@store')->name('orders.store');

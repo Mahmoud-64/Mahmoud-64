@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->boolean('is_insured');
             $table->string('status', 100);	
             $table->string('creator_type', 100);
-            $table->string('assigned_pharmacy _name', 100);
+            $table->string('assigned_pharmacy_name', 100);
             $table->string('Actions', 100);
         });
     }

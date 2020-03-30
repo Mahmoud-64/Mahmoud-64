@@ -14,7 +14,7 @@ class Order extends Model
         'is_insured',
         'status',
         'creator_type',
-        'assigned_pharmacy _name',
+        'assigned_pharmacy_name',
         'Actions',
     ];
 }

@@ -4,37 +4,38 @@
 @section('content')
       <div class="container m-5">
       <div class="text-center">
-        <a href="{{route('posts.create')}}" class="btn btn-outline-success font-weight-bold mb-5">Create Post</a>
+        <a href="{{route('orders.create')}}" class="btn btn-outline-success font-weight-bold mb-5">Create order</a>
       </div>
           <table class="table ml-5">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Slug</th>
+                  <th scope="col">order user name</th>
+                  <th scope="col">doctor name</th>
                   <!--<th scope="col">Description</th> -->
-                  <th scope="col">Posted By</th>
+                  <th scope="col"> delivering address</th>
                   <th scope="col">Created At</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">status</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($posts as $post)
+                @foreach($orders as $order)
                 <tr>
-                <th scope="row">{{ $post->id }}</th>
-                  <td>{{ $post->title }}</td>
-                  <td>{{ $post->slug }}</td>
-                 <!-- <td>{{ $post->description }}</td>-->
-                  <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
-                  <td>{{ $post->created_at->toDateString() }}</td>
+                <th scope="row">{{ $order->id }}</th>
+                  <td>{{ $order->order_user_name }}</td>
+                  <td>{{ $order->doctor_name }}</td>
+                 <!-- <td>{{ $order->description }}</td>-->
+                 <td>{{ $order->delivering_address}}</td>
+                 <td>{{ $order->created_at }}</td>
+                 <td>{{ $order->status }}</td>
 
                 <td>
-                <a href="{{route('posts.show',['post' => $post->id])}}" class="btn btn-info btn-sm">View</a>
-                <a href="{{route('posts.edit',['post' => $post->id])}}" class="btn btn-success btn-sm">edit</a>
-                <form class="d-inline" method="post" action="{{route('posts.show',['post' => $post->id])}}">
+                <a href="{{route('orders.show',['order' => $order->id])}}" class="btn btn-info btn-sm">View</a>
+                <a href="{{route('orders.edit',['order' => $order->id])}}" class="btn btn-success btn-sm">edit</a>
+                <form class="d-inline" method="POST" action="{{route('orders.show',['order' => $order->id])}}">
                 @csrf
                 @method('DELETE')
-                      <button type="submit" onclick="return confirm('are you sure you want to delete this post')" class="btn btn-primary btn-sm btn-danger">delete</button>
+                      <button type="submit" onclick="return confirm('are you sure you want to delete this order')" class="btn btn-primary btn-sm btn-danger">delete</button>
                 </form>
                 </td>
                 </tr>

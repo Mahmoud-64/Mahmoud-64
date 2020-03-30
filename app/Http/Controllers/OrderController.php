@@ -13,7 +13,9 @@ class OrderController extends Controller
         // return view('orders.index', [
         //   'orders' => $orders,
         // ]);
-        return view('orders.create');
+        return view('orders.index',[
+            'orders' => $orders,
+        ]);
     }
 
     public function create()
@@ -30,11 +32,10 @@ class OrderController extends Controller
         'is_insured'=>$request->is_insured,
         'status'=>$request->status,
         'creator_type'=>$request->creator_type,
-        'assigned_pharmacy _name'=>$request->assigned_pharmacy_name,
+        'assigned_pharmacy_name'=>$request->assigned_pharmacy_name,
         'Actions'=>$request->Actions,
       ]);
-
-     // return redirect()->route('layouts.app');
+      return redirect()->route('orders.index');
     }
 
 
@@ -59,11 +60,12 @@ class OrderController extends Controller
             'is_insured'=>$request->is_insured,
             'status'=>$request->status,
             'creator_type'=>$request->creator_type,
-            'assigned_pharmacy _name'=>$request->assigned_pharmacy_name,
+            'assigned_pharmacy_name'=>$request->assigned_pharmacy_name,
             'Actions'=>$request->Actions,
           ]);
+          return redirect()->route('orders.index');
 
-    //return redirect()->route('posts.index');
+    //return redirect()->route('orders.index');
     }
 
     public function show(Request $request)
@@ -73,6 +75,15 @@ class OrderController extends Controller
          return view('orders.show',[
              'order' => $order,
          ]);
+    }
+
+    public function destroy()
+    {
+      $request = request();
+      $orderId = $request->order;
+      $order = Order::find($orderId);
+      $order->delete();
+      return redirect()->route('orders.index');
     }
 
 }
