@@ -20,5 +20,6 @@ Route::get('/', function () {
 Route::get('/orders', 'OrderController@index')->name('orders.index');
 Route::get('/orders/create', 'OrderController@create')->name('orders.create');
 Route::post('/orders', 'OrderController@store')->name('orders.store');
+Route::get('orders/{order}', 'OrderController@show')->name('orders.show');
 Route::get('orders/{order}/edit', 'OrderController@edit')->name('orders.edit');
 Route::put('orders/{order}', 'OrderController@update')->name('orders.update');

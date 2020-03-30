@@ -66,4 +66,13 @@ class OrderController extends Controller
     //return redirect()->route('posts.index');
     }
 
+    public function show(Request $request)
+    {
+         $ordersId = $request->order;
+         $order = Order::find($ordersId);
+         return view('orders.show',[
+             'order' => $order,
+         ]);
+    }
+
 }
